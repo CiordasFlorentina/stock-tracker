@@ -1,0 +1,51 @@
+.detail-container {
+  border: 1px solid #000000;
+
+  > div {
+    padding: 10px;
+  }
+
+  .name {
+    font-weight: bold;
+    margin: 5px 0;
+    font-size: 15px;
+  }
+
+  button {
+    cursor: pointer;
+
+    &.close {
+      float: right;
+      padding: 2px 8px;
+      font-weight: bold;
+      border: none;
+      background-color: #FFFFFF;
+    }
+
+    &.sentiment {
+      background-color: aliceblue;
+      border: 1px solid grey;
+      border-radius: 3px;
+    }
+  }
+
+  .info {
+    width: 33%;
+    display: inline-block;
+
+    &.arrow p {
+      margin: auto;
+      width: 50%;
+      font-size: 50px;
+      opacity: 0.7;
+
+      .green {
+        color: darkgreen;
+      }
+
+      .red {
+        color: darkred;
+      }
+    }
+  }
+}

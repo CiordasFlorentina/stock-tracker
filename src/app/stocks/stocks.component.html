@@ -1,0 +1,12 @@
+<stock-search (searchedSymbol)="onSearchedSymbol($event)"></stock-search>
+<div >
+  <p class="info" *ngIf="loading">Fetching data...</p>
+  <p class="info error" *ngIf="authError">Stock could not be loaded, you don't have access to this resource.</p>
+</div>
+<div>
+  <ng-container *ngFor="let stock of stocks; index as i">
+    <stock-detail [stock]="stock" (stockRemoved)="onStockRemoved(i)"></stock-detail>
+  </ng-container>
+</div>
+
+

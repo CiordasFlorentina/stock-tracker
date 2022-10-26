@@ -1,0 +1,19 @@
+<div class="detail-container">
+  <div>
+    <div class="info" *ngFor="let month of history">
+      <p><strong>{{getMonth(month.month)}}</strong></p>
+      <p>Change: <strong>{{month.change}}</strong></p>
+      <p>MSPR: <strong>{{month.mspr}}</strong></p>
+      <div class="info arrow">
+        <p>
+          <i class="fa fa-arrow-up green" *ngIf="month.mspr > 0 else downArrow"></i>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<button class="go-back" id="backBtn" (click)="goBack()">Go to list of stocks</button>
+
+<ng-template #downArrow><i class="fa fa-arrow-down red"></i></ng-template>
+

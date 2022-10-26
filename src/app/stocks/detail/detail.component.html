@@ -1,0 +1,31 @@
+<div class="detail-container">
+  <button class="close" [id]="'remove' + stock.displaySymbol" (click)="removeStock()">x</button>
+  <div>
+    <p class="name">{{stock.description}} <span>({{stock.displaySymbol}})</span></p>
+
+    <ng-container *ngIf="stock.quote">
+      <div class="info">
+        <p>Change today: <strong>{{stock.quote.dp | number: '1.2-2'}}%</strong></p>
+        <p>Current price: <strong>{{stock.quote.c | currency}}</strong></p>
+      </div>
+      <div class="info">
+        <p>Opening price: <strong>{{stock.quote.o | currency}}</strong></p>
+        <p>High price: <strong>{{stock.quote.h | currency}}</strong></p>
+      </div>
+      <div class="info arrow">
+        <p>
+          <i class="fa fa-arrow-up green" *ngIf="stock.quote.dp > 0 else downArrow"></i>
+        </p>
+      </div>
+    </ng-container>
+
+    <button
+      [id]="'sentiment' + stock.displaySymbol"
+      class="sentiment"
+      (click)="navigateToSentiment(stock.displaySymbol)"
+    >Go to social sentiment details
+    </button>
+  </div>
+</div>
+
+<ng-template #downArrow><i class="fa fa-arrow-down red"></i></ng-template>
